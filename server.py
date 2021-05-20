@@ -7,21 +7,17 @@ name = os.environ['NAME']
 if name == None or len(name) == 0:
   name = "Santander"
 
-# current date and time
-now = datetime.now()
-date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
-print("date and time:",date_time)
-
-MESSAGE = date_time + " Hello, " + name + "!"
-
-print(" Message: '" + MESSAGE + "'")
-
 app = Flask(__name__)
 
 
 @app.route("/")
 def root():
   print("Handling web request. Returning message.")
+  # current date and time
+  now = datetime.now()
+  date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
+  print("date and time:",date_time)
+  MESSAGE = date_time + " Hello, " + name + "!"
   result = MESSAGE.encode("utf-8")
   return result
 
