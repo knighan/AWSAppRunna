@@ -9,9 +9,9 @@ if name == None or len(name) == 0:
 MESSAGE = "Hello, " + name + "!"
 # current date and time
 now = datetime.now()
+date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
+print("date and time:",date_time)
 
-timestamp = datetime.timestamp(now)
-print("timestamp =", timestamp)
 print(" Message: '" + MESSAGE + "'")
 
 app = Flask(__name__)
