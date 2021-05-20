@@ -1,4 +1,5 @@
 from flask import Flask
+from datetime import datetime
 import os
 
 PORT = 8080
@@ -6,7 +7,12 @@ name = os.environ['NAME']
 if name == None or len(name) == 0:
   name = "Santander"
 MESSAGE = "Hello, " + name + "!"
-print("Message: '" + MESSAGE + "'")
+# current date and time
+now = datetime.now()
+
+timestamp = datetime.timestamp(now)
+print("timestamp =", timestamp)
+print(" Message: '" + MESSAGE + "'")
 
 app = Flask(__name__)
 
